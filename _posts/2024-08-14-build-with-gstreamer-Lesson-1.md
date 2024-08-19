@@ -12,8 +12,8 @@ featured: true
 .post-content h2 {
   font-size: 2rem;
   font-weight: 600;
-  color: #2a9d8f;
-  border-bottom: 2px solid #2a9d8f;
+  color: #00543D;
+  border-bottom: 2px solid #00543D;
   padding-bottom: 0.5rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
@@ -28,12 +28,18 @@ featured: true
 }
 
 .post-content h4 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 500;
   color: #e76f51;
   margin-top: 1.25rem;
   margin-bottom: 0.5rem;
+  margin-left: 1.5rem;
 }
+
+.post-content h4 + * {
+  margin-left: 1.5rem;
+}
+
 </style>
 
 ## Introduction
@@ -50,15 +56,16 @@ At its core, GStreamer is built around the concept of pipelines—sequences of e
 
 ### What Am I Using GStreamer For?
 
-For my AI video analytics platform, GStreamer acts as the backbone. The process is relatively straightforward: reading from a source (whether that’s video files, RTSP streams, etc.), performing object detection, tracking, and finally displaying the results.
+For my AI video analytics platform, GStreamer acts as the backbone. The simplest version of the process is relatively straightforward: reading from a source (whether that’s video files, RTSP streams, etc.), performing object detection, tracking, and finally displaying the results. However, the full platform involves much more. It includes decoding the video streams, pre-processing the data, performing advanced object detection and tracking, video classification, adding custom metadata, sending data over MQTT, streaming via RTSP, and even detecting specific events. This complex pipeline allows for real-time analytics and decision-making, making GStreamer an essential tool in building this robust and scalable solution.
 
 You might wonder, “Why not just use something like NVIDIA’s DeepStream SDK?” It’s a valid question, and honestly, DeepStream could simplify things. But where’s the fun in that? GStreamer is open-source, allowing me to tweak and modify the code as needed. When existing plugins don’t meet my requirements, I have the freedom to build my own. This series is about giving you that same power: developing your own custom GStreamer elements for Linux, Windows, and macOS. So, let’s continue with the basics.
 
+## The Set-Up
 ### How Do You Start?
 
 There’s no better place to understand GStreamer concepts than by exploring the [GStreamer Application Development Manual](https://gstreamer.freedesktop.org/documentation/application-development/?gi-language=c). It’s a treasure trove of information, and while I won’t repeat the concepts here, I’ll guide you through navigating everything, making your learning process smoother.
 
-## Installing GStreamer
+### Installing GStreamer
 
 Before diving into examples, you’ll need to install GStreamer on your system. I suggest following the installation instructions in the [GStreamer Application Development Manual](https://gstreamer.freedesktop.org/documentation/installing/index.html?gi-language=c) for your specific environment, whether that’s Linux, Windows, or macOS.
 
@@ -190,8 +197,7 @@ void on_pad_added(GstElement* src, GstPad* new_pad, GstElement* sink) {
 
 #### Understanding the `on_pad_added` Function
 
-In GStreamer, some elements, like `decodebin`, dynamically create pads during runtime based on the media stream they are processing. They can't link all their pads at the beginning because they don't know what streams they will encounter (e.g., a video file might contain both audio and video streams). 
-
+In GStreamer, some elements, like `decodebin`, dynamically create pads during runtime based on the media stream they are processing. They can't link all their pads at the beginning because they don't know what streams they will encounter (e.g., a video file might contain both audio and video streams).\
 The `on_pad_added` function is a callback that gets triggered when the `decodebin` element adds a new pad. This is crucial because you need to link this newly created pad to the next element in your pipeline (in this case, `autovideosink`), which handles the video output.
 
 
