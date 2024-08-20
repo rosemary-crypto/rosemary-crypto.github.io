@@ -65,7 +65,7 @@
     <span class="c1">// Attempt to link the newly created pad with the sink pad</span>
     <span class="n">GstPadLinkReturn</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">gst_pad_link</span><span class="p">(</span><span class="n">new_pad</span><span class="p">,</span> <span class="n">sink_pad</span><span class="p">);</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">GST_PAD_LINK_FAILED</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span> <span class="p">{</span>
-        <span class="n">g_printerr</span><span class="p">(</span><span class="s">"Type is '%s' but link failed.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> 
+        <span class="n">g_printerr</span><span class="p">(</span><span class="s">"Type is '%s' but link failed.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
             <span class="n">gst_structure_get_name</span><span class="p">(</span><span class="n">gst_caps_get_structure</span><span class="p">(</span><span class="n">gst_pad_get_current_caps</span><span class="p">(</span><span class="n">new_pad</span><span class="p">),</span> <span class="mi">0</span><span class="p">)));</span>
     <span class="p">}</span>
 
