@@ -2,6 +2,8 @@
 <html lang="{{ site.lang }}">
   <!-- Head -->
   <head>
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description }}">
     {% if page.redirect %}
       {% if page.redirect == true %}
         {% assign redirect = site.baseurl | append: '/' %}
