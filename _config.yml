@@ -4,12 +4,12 @@
 
 title: # the website title (if blank, full name will be used instead)
 first_name: Rosemary
-middle_name: 
+middle_name:
 last_name: Koikara
-email: 
+email:
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Personal site for blog, projects, cv, etc.
-footer_text: > 
+footer_text: >
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
 keywords: software development, technology blog, AI research, GPU optimization, cryptography, blockchain technology, video analytics, deep learning, C++ development, GStreamer tutorials, portfolio website, AI video analytics, research and development, coding tutorials, GStreamer framework, multimedia processing # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)

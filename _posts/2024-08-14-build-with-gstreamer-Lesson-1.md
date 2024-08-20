@@ -61,6 +61,7 @@ For my AI video analytics platform, GStreamer acts as the backbone. The simplest
 You might wonder, “Why not just use something like NVIDIA’s DeepStream SDK?” It’s a valid question, and honestly, DeepStream could simplify things. But where’s the fun in that? GStreamer is open-source, allowing me to tweak and modify the code as needed. When existing plugins don’t meet my requirements, I have the freedom to build my own. This series is about giving you that same power: developing your own custom GStreamer elements for Linux, Windows, and macOS. So, let’s continue with the basics.
 
 ## The Set-Up
+
 ### How Do You Start?
 
 There’s no better place to understand GStreamer concepts than by exploring the [GStreamer Application Development Manual](https://gstreamer.freedesktop.org/documentation/application-development/?gi-language=c). It’s a treasure trove of information, and while I won’t repeat the concepts here, I’ll guide you through navigating everything, making your learning process smoother.
@@ -79,15 +80,13 @@ To understand GStreamer, it’s crucial to get hands-on experience. Let's start 
 
 This diagram shows a simple pipeline with elements like `filesrc`, `decodebin`, and `autovideosink` connected together.
 
-
 ### Understanding the Basics
 
 - **Elements:** These are the basic building blocks of a GStreamer pipeline. Each element has a specific role, such as reading data (source), processing it (filter), or outputting it (sink). For example:
   - `filesrc`: Reads data from a file.
   - `decodebin`: Automatically detects and decodes the data.
   - `autovideosink`: Displays the video on your screen.
-  
-- **Pads:**  A pad is a point of connection in a GStreamer element, where media data flows in or out. Every element has two types of pads: source pads (where data exits the element) and sink pads (where data enters). This concept mirrors real-world scenarios—a water faucet (source) provides water, while a drain (sink) receives it.
+- **Pads:** A pad is a point of connection in a GStreamer element, where media data flows in or out. Every element has two types of pads: source pads (where data exits the element) and sink pads (where data enters). This concept mirrors real-world scenarios—a water faucet (source) provides water, while a drain (sink) receives it.
 
 - **Bins:** A bin is a container for elements. It groups multiple elements together, managing them as a single entity. This is particularly useful when dealing with complex pipelines. For example, `decodebin` is a bin because it automatically detects the format of incoming data, creates the necessary elements to decode it, and manages them internally. You don't have to worry about what's inside; it’s like a black box that simplifies your pipeline design.
 
@@ -178,13 +177,14 @@ void on_pad_added(GstElement* src, GstPad* new_pad, GstElement* sink) {
     // Attempt to link the newly created pad with the sink pad
     GstPadLinkReturn ret = gst_pad_link(new_pad, sink_pad);
     if (GST_PAD_LINK_FAILED(ret)) {
-        g_printerr("Type is '%s' but link failed.\n", 
+        g_printerr("Type is '%s' but link failed.\n",
             gst_structure_get_name(gst_caps_get_structure(gst_pad_get_current_caps(new_pad), 0)));
     }
 
     g_object_unref(sink_pad);
 }
 ```
+
 - `gst_init`: Initializes GStreamer and parses any command-line arguments.
 - `gst_element_factory_make`: Creates the elements used in the pipeline, such as the source, decoder, and video sink.
 - `gst_bin_add_many`: Adds all elements to the pipeline.
@@ -199,7 +199,6 @@ void on_pad_added(GstElement* src, GstPad* new_pad, GstElement* sink) {
 
 In GStreamer, some elements, like `decodebin`, dynamically create pads during runtime based on the media stream they are processing. They can't link all their pads at the beginning because they don't know what streams they will encounter (e.g., a video file might contain both audio and video streams).\
 The `on_pad_added` function is a callback that gets triggered when the `decodebin` element adds a new pad. This is crucial because you need to link this newly created pad to the next element in your pipeline (in this case, `autovideosink`), which handles the video output.
-
 
 The complete code and detailed explanations, including installation instructions and how to run the program, are available on [GitHub](https://github.com/rosemary-crypto/build-with-gstreamer). This repository will be updated with each article in the series, making it easier for you to follow along.
 
