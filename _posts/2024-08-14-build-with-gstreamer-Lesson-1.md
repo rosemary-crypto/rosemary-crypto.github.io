@@ -205,10 +205,10 @@ The complete code and detailed explanations, including installation instructions
 
 ### GitHub Repository and Following Along
 
-To make the learning process even more interactive, I’ve created a [GitHub repository](https://github.com/rosemary-crypto/build-with-gstreamer) where you can find all the code examples discussed in this series. Each lesson in this tutorial will be represented by a separate branch in the repository, allowing you to check out the specific branch to follow along with that lesson. As the course progresses, the `master` branch will be updated with the latest version of the project.
+To make the learning process even more interactive, I’ve created a [GitHub repository](https://github.com/rosemary-crypto/build-with-gstreamer) where you can find all the code examples discussed in this series. Each module in this tutorial will be represented by a separate branch in the repository, allowing you to check out the specific branch to follow along with that module. As the course progresses, the `master` branch will be updated with the latest version of the project.
 
-- **Start with Lesson 1:** Check out the branch `lesson-1-getting-started` to see the code and examples for this introductory lesson.
-- **Stay Updated:** As you progress through the series, switch to the corresponding branch for each lesson to get the most relevant code and updates.
+- **Start with Module 1:** Check out the branch `lesson-1-getting-started` to see the code and examples for this introductory lesson.
+- **Stay Updated:** As you progress through the series, switch to the corresponding branch for each module to get the most relevant code and updates.
 - **Explore the Code:** Feel free to explore, modify, and experiment with the code in each branch to reinforce your learning.
 
 ### Compiling and Running

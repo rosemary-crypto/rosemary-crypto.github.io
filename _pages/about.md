@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Pintel Co. Ltd., Seoul, South Korea
+#subtitle: <a href='#'>Affiliations</a>. Pintel Co. Ltd., Seoul, South Korea
 
 profile:
   align: right
