@@ -2,7 +2,7 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: # the website title (if blank, full name will be used instead)
+title: Rosemary Koikara - Cryptography, Blockchain, and AI Enthusiast # the website title (if blank, full name will be used instead)
 first_name: Rosemary
 middle_name:
 last_name: Koikara
@@ -312,8 +312,8 @@ display_categories: #["external-services"] # these categories will be displayed 
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Einstein]
-  first_name: [Albert, A.]
+  last_name: [Koikara]
+  first_name: [Rosemary]
 
   style: apa
   locale: en

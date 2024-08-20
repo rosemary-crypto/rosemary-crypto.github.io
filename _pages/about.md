@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-#subtitle: <a href='#'>Affiliations</a>. Pintel Co. Ltd., Seoul, South Korea
+#subtitle: <a href='#'>Rosemary Koikara</a>
 
 profile:
   align: right
