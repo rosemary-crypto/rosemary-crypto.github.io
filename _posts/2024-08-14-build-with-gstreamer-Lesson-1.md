@@ -76,7 +76,12 @@ To understand GStreamer, it’s crucial to get hands-on experience. Let's start 
 
 ### Pipeline Diagram
 
-![Pipeline Diagram](/assets/img/build_with_gstreamer/basic-pipeline-lesson-1.png)
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="/assets/img/build_with_gstreamer/basic-pipeline-lesson-1.png" width="70%" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
 
 This diagram shows a simple pipeline with elements like `filesrc`, `decodebin`, and `autovideosink` connected together.
 
