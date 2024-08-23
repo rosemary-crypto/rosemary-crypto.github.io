@@ -8,7 +8,7 @@ categories: cryptography
 featured: true
 ---
 
-## Introduction to Secret Sharing
+## Secret Sharing
 
 I wouldn’t call myself a secretive person, but I do value my privacy. If you’re like me, you’ve probably found yourself holding onto a secret so tightly that you start feeling like it might just burst out. But instead of spilling the whole thing to one person, you decide to share bits and pieces with different people. This way, no single person knows the full story, and you feel a bit more secure.
 
@@ -132,12 +132,10 @@ To really bring this to life, let's take it a step further. Instead of just spli
 The complete implementation of this concept is provided in the repository. The code is available in both C++ and Rust:
 
 - **C++ Version**:
-  - Located in the `cpp_version` directory, this version uses OpenCV for image processing.
-  - Core files include `SecretSharing.hpp`, `SecretSharing.cpp`, and `main.cpp`.
+  - Located in the `cpp` directory, this version uses OpenCV for image processing.
 
 - **Rust Version**:
-  - Located in the `rust_version` directory, this version utilizes Rust's `threshold_crypto` library.
-  - Key files include `main.rs`, `lib.rs`, and modules for share generation and reconstruction.
+  - Located in the `rust` directory.
 
 The code is accessible on [GitHub](https://github.com/rosemary-crypto/Shamir-sSecretSharing) for further exploration and application.
 
