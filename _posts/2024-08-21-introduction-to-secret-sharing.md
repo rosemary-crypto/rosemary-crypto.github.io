@@ -8,6 +8,40 @@ categories: cryptography
 featured: true
 ---
 
+<style>
+.post-content h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #00543D;
+  border-bottom: 2px solid #00543D;
+  padding-bottom: 0.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.post-content h3 {
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: #264653;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.post-content h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #e76f51;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  margin-left: 1.5rem;
+}
+
+.post-content h4 + * {
+  margin-left: 1.5rem;
+}
+
+</style>
+
 ## Secret Sharing
 
 I wouldn’t call myself a secretive person, but I do value my privacy. If you’re like me, you’ve probably found yourself holding onto a secret so tightly that you start feeling like it might just burst out. But instead of spilling the whole thing to one person, you decide to share bits and pieces with different people. This way, no single person knows the full story, and you feel a bit more secure.
@@ -145,4 +179,4 @@ Now, why should you care about this old-school cryptography trick? Well, let’s
 
 TSS comes to the rescue by allowing a group of participants to generate a digital signature on a message without anyone holding the full key. Instead, the key is distributed, and only a subset of participants—what we call the threshold number—needs to come together to produce a valid signature. This method not only enhances security by eliminating single points of failure but also builds trust, as no single party controls the entire signing process.
 
-However, TSS more complex than SSS, but that’s why we’re here. Before diving into TSS, it’s important to understand SSS and its limitations so we can appreciate the need for more advanced techniques like TSS.
+However, TSS is more complex than SSS, but that’s why we’re here. Before diving into TSS, it’s important to understand SSS and its limitations so we can appreciate the need for more advanced techniques like TSS.

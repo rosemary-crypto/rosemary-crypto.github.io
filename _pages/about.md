@@ -22,4 +22,4 @@ These days, I'm leading AI projects that are making a real difference -think sma
 
 But let's be real - coding isn't just about the lines of code. It's about the people you work with and the ideas you bring to life together. I'm a firm believer that the best solutions come from diverse teams bouncing ideas off each other, And I'm always eager to learn from and contribute to the community. When I'm not buried in code, you'll find me geeking out over new tech, sharing thoughts on my blog, or diving into one of my many non-tech hobbies.
 
-Join me as I delve into the latest in GPU optimization, AI, blockchain and cryptography. Together, we can explore the fascinating world of technology and how it's shaping the future.
+Join me as I delve into the latest in cryptography, blockchain, AI, and coding in general. Together, we can explore the fascinating world of technology and how it's shaping the future.
