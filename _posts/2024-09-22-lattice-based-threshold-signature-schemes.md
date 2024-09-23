@@ -54,7 +54,7 @@ In this article, we’re going to break down how **lattice-based threshold signa
 
 ## What makes Lattice-Based Cryptography so special?
 
-Lattice-based cryptography is built on mathematical structures called **lattices**—essentially grids of points in space. What makes lattices special is that some problems related to them are incredibly hard to solve, even for quantum computers! This makes them a go-to choice for post-quantum cryptographic systems.
+Lattice-based cryptography is built on mathematical structures called **lattices**—essentially grids of points in space. What makes lattices special is that some problems related to them (the Shortest Vector Problem (SVP) and the Learning With Errors (LWE) problems)are incredibly hard to solve, even for quantum computers! This makes them a go-to choice for post-quantum cryptographic systems.
 
 In a lattice-based threshold signature scheme, the key (or secret) is hidden using these lattice-based problems. And just like in traditional TSS, no single participant can reveal the whole secret.
 
