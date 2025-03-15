@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Understanding GStreamer Buffers and Plugin Development - Building Blocks for Video Analytics"
-date: 2024-08-21 23:00:00
+date: 2025-03-14 23:00:00
 description: Deep dive into GStreamer's core concepts as we begin building a real-time video analytics system.
 tags: GStreamer, development, C++, buffers, plugins, video analytics
 categories: tutorials
