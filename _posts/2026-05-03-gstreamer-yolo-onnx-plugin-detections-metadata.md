@@ -131,7 +131,7 @@ Drawing answers the question, *does the neural net agree with my eyes?* **Metada
 
 Think of **`GstMeta`** as a **sticky note** you slap on the same package that already holds the pixels. Downstream elements—trackers, recorders, MQTT bridges—can peel off that note and read structured detections without paying the cost of another forward pass.
 
-[GStreamer's meta system](https://gstreamer.freedesktop.org/documentation/additional/design/gstmeta.html) lets you attach custom structs to a **`GstBuffer`** without copying the whole frame. The pattern looks like this:
+[GStreamer's meta system](https://gstreamer.freedesktop.org/documentation/additional/design/meta.html) lets you attach custom structs to a **`GstBuffer`** without copying the whole frame. The pattern looks like this:
 
 1. **Register** your meta type once with `gst_meta_api_type_register` and `gst_meta_register`.
 2. Write little helpers like `gst_buffer_add_detections_meta` and `gst_buffer_get_detections_meta` so the rest of your code stays readable.
