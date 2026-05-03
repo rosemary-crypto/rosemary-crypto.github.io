@@ -183,4 +183,4 @@ Once your standalone tester puts boxes in the right places on still images, you 
 
 The companion repo is **[build-with-gstreamer](https://github.com/rosemary-crypto/build-with-gstreamer)**. The standalone work for this article lives next to the plugin code so you can diff the two and see how little has to change.
 
-See you in [Lesson 3]({% post_url 2026-04-24-gstreamer-yolo-onnx-plugin-detections-metadata %}) where we finally put this on a conveyor belt. 🚀
+See you in [Lesson 3]({% post_url 2026-05-03-gstreamer-yolo-onnx-plugin-detections-metadata %}) where we finally put this on a conveyor belt. 🚀
