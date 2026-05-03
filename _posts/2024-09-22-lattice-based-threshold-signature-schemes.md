@@ -44,7 +44,7 @@ featured: true
 
 ## Introduction to Lattice-Based Threshold Signature Schemes
 
-Imagine you’re working in a blockchain network, and you don’t want one person to have full control of the private key needed to sign transactions. That sounds risky, right? Well, this is where **threshold signature schemes** (TSS) come into play.  Instead of one person holding the key, multiple participants each hold a piece of it. And here's the twist: none of them can reconstruct the entire key on their own. But when they work together, they can still sign a valid transaction or document. I've written about them [here](https://rosemary-crypto.github.io/posts/introduction-to-threshold-signature-schemes/) if you're interested in learning more about them.
+Imagine you’re working in a blockchain network, and you don’t want one person to have full control of the private key needed to sign transactions. That sounds risky, right? Well, this is where **threshold signature schemes** (TSS) come into play. Instead of one person holding the key, multiple participants each hold a piece of it. And here's the twist: none of them can reconstruct the entire key on their own. But when they work together, they can still sign a valid transaction or document. I've written about them [here](https://rosemary-crypto.github.io/posts/introduction-to-threshold-signature-schemes/) if you're interested in learning more about them.
 
 Now, let’s add **lattice-based cryptography** into the mix. Why? Because lattices, with their quantum-resilient properties, are a superhero of cryptography. Lattice-based cryptography is super secure and, unlike traditional methods, isn’t vulnerable to attacks from quantum computers.
 
@@ -66,7 +66,7 @@ Let’s break it down in simple terms:
 
 ### Distributed Key Generation (DKeyGen)
 
-In the DKeyGen process, the secret key is split into **t-out-of-n shares**. So if you have a group of participants, you can decide that at least *t* of them need to cooperate to produce a signature. And don’t worry, the public key is still valid for verifying signatures—just like any other signature scheme.
+In the DKeyGen process, the secret key is split into **t-out-of-n shares**. So if you have a group of participants, you can decide that at least _t_ of them need to cooperate to produce a signature. And don’t worry, the public key is still valid for verifying signatures—just like any other signature scheme.
 
 ### Share Refreshment (ShareRefresh)
 
@@ -96,7 +96,7 @@ Lattice-based cryptography is also great for **zero-knowledge proofs** (ZKPs), w
 
 ## Implementation
 
-If you’re curious to see how lattice-based threshold signatures work under the hood, I’ve created a complete **Python implementation** of these concepts, loosely based on the paper *Efficient Lattice-Based Threshold Signatures with Functional Interchangeability*.
+If you’re curious to see how lattice-based threshold signatures work under the hood, I’ve created a complete **Python implementation** of these concepts, loosely based on the paper _Efficient Lattice-Based Threshold Signatures with Functional Interchangeability_.
 
 You can check out the implementation in this [GitHub repository](https://github.com/rosemary-crypto/lattice-based-tss). The code walks you through distributed key generation, share refreshment, and distributed signing, so you can easily experiment with it and see how it could work for your own blockchain projects!
 

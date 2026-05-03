@@ -80,7 +80,7 @@ Exported YOLO graphs usually hand you a **big pile of candidate boxes**—think 
 
 Keep your thresholds and NMS in **one shared module**. You'll thank yourself later when the standalone tester and the GStreamer element both call the same functions.
 
-Here is one more gotcha I learned the hard way: some Ultralytics exports give you an **end-to-end** graph where NMS already lives inside ONNX, and the output looks like a tidy `[1, N, 6]` table of boxes and scores. Others give you the **raw head**—a wide tensor like `[1, 84, 8400]` (YOLOv8) where four box coordinates and the class scores are all stacked along one axis. Treat the layout as **version-specific**, wire your decoder after you look at *your* file, and pin the `ultralytics` version in a comment when it works. Upgrades are wonderful until they silently change a tensor name.
+Here is one more gotcha I learned the hard way: some Ultralytics exports give you an **end-to-end** graph where NMS already lives inside ONNX, and the output looks like a tidy `[1, N, 6]` table of boxes and scores. Others give you the **raw head**—a wide tensor like `[1, 84, 8400]` (YOLOv8) where four box coordinates and the class scores are all stacked along one axis. Treat the layout as **version-specific**, wire your decoder after you look at _your_ file, and pin the `ultralytics` version in a comment when it works. Upgrades are wonderful until they silently change a tensor name.
 
 ## Step 2 — The Standalone C++ Recipe
 

@@ -44,17 +44,17 @@ featured: true
 
 ## Introduction
 
-The idea of trusting a single person or system with *everything*—be it sensitive data, a secret, or even the keys to the kingdom—makes everyone a little nervous. What if they slip up? What if someone gets compromised? That’s where distributing the trust across multiple people or systems comes in handy.
+The idea of trusting a single person or system with _everything_—be it sensitive data, a secret, or even the keys to the kingdom—makes everyone a little nervous. What if they slip up? What if someone gets compromised? That’s where distributing the trust across multiple people or systems comes in handy.
 
-Enter **Multiparty Computation (MPC)** and **Multiparty Key Management Systems (MKMS)**. These cryptographic techniques allow multiple people to work together to perform tasks, like signing a document or approving a transaction, *without* any of them revealing their private information. It’s like having everyone contribute a piece of the puzzle, but no one person has all the pieces.
+Enter **Multiparty Computation (MPC)** and **Multiparty Key Management Systems (MKMS)**. These cryptographic techniques allow multiple people to work together to perform tasks, like signing a document or approving a transaction, _without_ any of them revealing their private information. It’s like having everyone contribute a piece of the puzzle, but no one person has all the pieces.
 
-We’re going to explore something called **Threshold Signature Schemes (TSS)**, a close relative of secret sharing (which we covered in a [previous post](https://rosemary-crypto.github.io/blog/2024/introduction-to-secret-sharing/)), but with a twist: rather than simply protecting a secret, TSS lets a group of participants *collaborate* to generate a valid digital signature. And the coolest part? No one has the full private key.
+We’re going to explore something called **Threshold Signature Schemes (TSS)**, a close relative of secret sharing (which we covered in a [previous post](https://rosemary-crypto.github.io/blog/2024/introduction-to-secret-sharing/)), but with a twist: rather than simply protecting a secret, TSS lets a group of participants _collaborate_ to generate a valid digital signature. And the coolest part? No one has the full private key.
 
 ## What is TSS?
 
 So, what exactly is **Threshold Signature Schemes (TSS)**? Well, it’s all about splitting a private signing key into multiple pieces or shares, and only when a certain number of these shares (the threshold) come together can a valid signature be produced. Think of it like this: imagine you and your friends want to sign a really important document, but you don’t want just one person in charge of the pen. Instead, the pen is split into pieces, and only when enough pieces are put together can you write the signature. That’s TSS in a nutshell.
 
-Let’s take a practical example: you have a wallet in a decentralized exchange. Instead of one person holding the private key, TSS ensures that multiple parties hold *pieces* of that key. When it’s time to sign a transaction, a certain number of those people (the threshold) need to work together to create the signature.
+Let’s take a practical example: you have a wallet in a decentralized exchange. Instead of one person holding the private key, TSS ensures that multiple parties hold _pieces_ of that key. When it’s time to sign a transaction, a certain number of those people (the threshold) need to work together to create the signature.
 
 The beauty of TSS is that even though no one has the full private key, they can still collaborate to generate a valid signature. No single party holds too much power, but the system stays functional even if some shares are unavailable. It’s like teamwork, but for cryptography!
 
@@ -81,7 +81,6 @@ In ECC, we work over a **finite field**, which means we only use integer coordin
 The primary operation in ECC is **point addition**:
 
 - **Point Addition ($$P + Q$$)**: Given two points $$P$$ and $$Q$$ on the curve, their sum $$R = P + Q$$ is also a point on the curve, defined by specific algebraic formulas.
-  
 - **Point Doubling ($$2P$$)**: This is a special case of point addition where $$P = Q$$.
 
 These operations are used to define **scalar multiplication**:
@@ -107,13 +106,11 @@ In Threshold Signature Schemes, ECC is used to allow multiple participants to co
 1. **Private Key Sharing**:
 
    - The original private key $$ s $$ is split into $$ n $$ shares $$ s_1, s_2, \dots, s_n $$ using a secret sharing scheme (like Shamir's Secret Sharing).
-   
    - Each participant $$ i $$ holds a share $$ s_i $$.
 
 2. **Public Key Computation**:
 
    - The public key remains $$ P = sG $$.
-   
    - Each participant can compute their own public share $$ P_i = s_i G $$.
 
 #### Signature Generation
@@ -123,13 +120,11 @@ When a message $$ m $$ needs to be signed:
 1. **Partial Signatures**:
 
    - Each participant computes a partial signature $$ \sigma_i $$ using their private share $$ s_i $$.
-   
    - The signature process involves generating a random nonce $$ k_i $$ and computing $$ R_i = k_i G $$.
 
 2. **Combining Partial Signatures**:
 
    - The participants broadcast their $$ R_i $$ values and use them to compute a combined $$ R $$.
-   
    - They then use their $$ s_i $$ and $$ k_i $$ to compute their partial signatures $$ \sigma_i $$.
 
 3. **Final Signature**:
@@ -169,10 +164,12 @@ By exploring the code, you'll gain a deeper understanding of how ECC works under
 There’s no one-size-fits-all TSS protocol. Depending on what you’re trying to do, different variations of TSS might be more suitable. Here are a few popular ones:
 
 1. **Shamir-based TSS**:
+
    - **Strengths**: Simple, easy to implement, and mathematically elegant.
    - **Weaknesses**: If all shares are gathered, the private key can be reconstructed, which might pose a security risk.
 
 2. **Pedersen’s TSS**:
+
    - **Strengths**: Uses verifiable secret sharing to ensure that malicious participants can’t provide false shares.
    - **Weaknesses**: A bit more computationally intensive, but worth it if you need the added security.
 
@@ -226,4 +223,3 @@ So there you have it! **Threshold Signature Schemes (TSS)** are an incredible to
 Remember, understanding the math behind these concepts can deepen your grasp of how they work and why they're secure. If you want to explore ECC and TSS in more detail, including practical code examples, feel free to check out the [GitHub repository](https://github.com/rosemary-crypto/ECC-TSS-Demo). It's a great resource to see these principles in action.
 
 Happy coding and stay secure!
-

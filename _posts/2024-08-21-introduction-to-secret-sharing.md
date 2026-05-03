@@ -75,7 +75,6 @@ $$
 ## Why Modular Arithmetic and Prime Numbers?
 
 - **Modular arithmetic** is a system of arithmetic for integers, where numbers wrap around after they reach a certain value, $$p$$ (the modulus). Think of it like a clock: after 12 comes 1 again. In cryptography, modular arithmetic helps keep numbers within a specific range, making it more manageable and secure.
-  
 - **Prime numbers** are crucial because they ensure certain properties that are vital for cryptographic security:
   - **Unique Inverses**: In modular arithmetic with a prime modulus $$p$$, every non-zero number has a unique multiplicative inverse. This means that for any non-zero number $$a$$ within the range $$[1, p-1]$$, there exists a number $$b$$ such that $$(a \cdot b) \mod p = 1$$. This property is crucial because it allows division operations to be performed in modular arithmetic.
   - **Avoiding Redundancies**: Prime moduli help avoid redundancies and ensure that every possible result of an operation is unique within the range $$[0, p-1]$$. This uniqueness is critical in cryptography because it prevents different numbers from being treated as equivalent, which could otherwise lead to vulnerabilities.
@@ -90,6 +89,7 @@ Let’s start simple. Imagine you have a secret number, and you want to split it
 Let's take a $$(2, 5)$$ threshold scheme to divide the secret 298 and let the prime number be 307. (I chose 307 since it is a prime number larger than 298)
 
 1. **Set up the polynomial**
+
    - Degree: $$k-1 = 1$$
    - Form: $$q(x) = s + a_1 \cdot x \mod p = 298 + a_1 \cdot x \mod 307$$
 
@@ -109,6 +109,7 @@ You now have 5 shares: $$ (1, 114), (2, 237), (3, 53), (4, 176), (5, 299) $$.
 Let’s now reconstruct the secret using Lagrange interpolation. Since this is a $$(2, 5)$$ threshold scheme, we need only two of the shares to reconstruct the secret. We’ll use Share 1 $$(1, 114)$$ and Share 2 $$(2, 237)$$.
 
 1. **Calculate the Lagrange basis**
+
    - For our example, with $$x_1 = 1$$ and $$x_2 = 2$$, the Lagrange basis polynomials at $$x = 0$$ (which gives us the secret) are:
 
    $$
@@ -120,6 +121,7 @@ Let’s now reconstruct the secret using Lagrange interpolation. Since this is a
    $$
 
 2. **Calculate the Secret**
+
    - Now, we use these Lagrange basis polynomials to reconstruct the secret:
 
    $$
@@ -166,6 +168,7 @@ To really bring this to life, let's take it a step further. Instead of just spli
 The complete implementation of this concept is provided in the repository. The code is available in both C++ and Rust:
 
 - **C++ Version**:
+
   - Located in the `cpp` directory, this version uses OpenCV for image processing.
 
 - **Rust Version**:

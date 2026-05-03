@@ -82,7 +82,6 @@ To understand GStreamer, it’s crucial to get hands-on experience. Let's start 
     </div>
 </div>
 
-
 This diagram shows a simple pipeline with elements like `filesrc`, `decodebin`, and `autovideosink` connected together.
 
 ### Understanding the Basics
@@ -234,7 +233,9 @@ Finally, run the compiled program:
 Here are some fun experiments you can try to deepen your understanding of GStreamer pipelines:
 
 ### 1. Play with Different Sources
+
 Try modifying our basic pipeline to work with:
+
 ```bash
 # Webcam input
 gst-launch-1.0 v4l2src ! videoconvert ! autovideosink
@@ -247,7 +248,9 @@ gst-launch-1.0 rtspsrc location=rtsp://example.com/stream ! decodebin ! videocon
 ```
 
 ### 2. Add Some Effects
+
 Experiment with video effects by adding elements between `decodebin` and `autovideosink`:
+
 ```bash
 # Edge detection
 gst-launch-1.0 filesrc location=video.mp4 ! decodebin ! videoconvert ! edgetv ! autovideosink
@@ -260,13 +263,16 @@ gst-launch-1.0 filesrc location=video.mp4 ! decodebin ! videoconvert ! warptv ! 
 ```
 
 ### 3. Modify Our C++ Application
+
 Try these modifications to our basic video player:
+
 - Add a volume control for audio playback
 - Implement play/pause functionality
 - Add a progress bar using video duration
 - Handle window resize events
 
 Here's a starting point for adding audio:
+
 ```cpp
 // Add these elements
 GstElement* audioconv = gst_element_factory_make("audioconvert", "aconv");
@@ -277,7 +283,9 @@ gst_bin_add_many(GST_BIN(pipeline), audioconv, audiosink, NULL);
 ```
 
 ### 4. Explore Pipeline States
+
 Write a small program that demonstrates pipeline state changes:
+
 ```cpp
 // Try changing states and observe behavior
 gst_element_set_state(pipeline, GST_STATE_READY);
@@ -286,19 +294,24 @@ gst_element_set_state(pipeline, GST_STATE_PLAYING);
 ```
 
 ### 5. Build a Multi-Stream Pipeline
+
 Try creating a pipeline that:
+
 - Displays video in multiple windows
 - Records video while displaying it
 - Streams to network while playing locally
 
 Here's an example:
+
 ```bash
 # Display and record simultaneously
 gst-launch-1.0 filesrc location=video.mp4 ! decodebin ! tee name=t ! queue ! videoconvert ! autovideosink t. ! queue ! x264enc ! mp4mux ! filesink location=output.mp4
 ```
 
 ### Debug Tips
+
 When experimenting, these debug commands will be your friends:
+
 ```bash
 # List all available elements
 gst-inspect-1.0
