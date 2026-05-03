@@ -78,7 +78,7 @@ A couple of practical notes from getting this wrong the first time:
 A plugin that hardcodes its model path and thresholds is a plugin that ages badly. The element exposes seven properties so you can tune behaviour from `gst-launch` without recompiling:
 
 | Property         | Default | Purpose                                                  |
-|------------------|---------|----------------------------------------------------------|
+| ---------------- | ------- | -------------------------------------------------------- |
 | `model-path`     | `""`    | Path to the ONNX file. Empty = synthetic detection mode. |
 | `conf-threshold` | `0.25`  | Drop predictions below this score.                       |
 | `iou-threshold`  | `0.45`  | NMS overlap cutoff.                                      |
@@ -127,7 +127,7 @@ For learning, I honestly recommend **drawing directly on the video** first. It's
 
 ## Step 4 — GstMeta: Sticky Notes on the Same Package
 
-Drawing answers the question, *does the neural net agree with my eyes?* **Metadata** answers a different question: *what does the rest of the pipeline know without running inference again?*
+Drawing answers the question, _does the neural net agree with my eyes?_ **Metadata** answers a different question: _what does the rest of the pipeline know without running inference again?_
 
 Think of **`GstMeta`** as a **sticky note** you slap on the same package that already holds the pixels. Downstream elements—trackers, recorders, MQTT bridges—can peel off that note and read structured detections without paying the cost of another forward pass.
 
@@ -198,18 +198,23 @@ The article you're reading is the map; the branch is the ground truth.
 Now that you have the story end-to-end, here are some challenges I'd try if I were sitting next to you at the keyboard:
 
 ### 1. Run It With No Model
+
 Launch the pipeline with no `model-path` set. The synthetic moving box should appear and `gst_buffer_get_detections_meta` should return non-empty results—a fast way to confirm your draw path and meta wiring without an ONNX file.
 
 ### 2. Meta Only, No Drawing
+
 Set `draw-boxes=false attach-meta=true` and build a tiny `identity`-style element downstream that only reads `GstDetectionsMeta` and prints class ids. You'll know you understand meta when that works.
 
 ### 3. Survive a `queue`
+
 Insert a `queue` between `yolonnx` and your downstream consumer and confirm the meta still arrives. It should—because we wired up `transform_func` from day one—but seeing the test pass is a nice confirmation that your meta is actually transform-safe.
 
 ### 4. Log Timing Like We Did for FPS
+
 Reuse the clock tricks from the frame monitor article: wrap the `Session::Run` call inside `transform_frame_ip` and measure how long inference takes per frame at 720p versus 1080p. The numbers tell you when you actually need a GPU provider.
 
 ### 5. Debug the Usual Way
+
 When boxes go sideways:
 
 ```bash
